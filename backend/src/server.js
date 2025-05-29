@@ -11,10 +11,10 @@ require('dotenv').config();
 
 // Import routes
 const authRoutes = require('./routes/auth');
-const userRoutes = require('./routes/users');
+const userRoutes = require('./routes/users'); // Ensure this path is correct
 const rideRoutes = require('./routes/rides');
-const subscriptionRoutes = require('./routes/subscriptions');
-const paymentRoutes = require('./routes/payments');
+//const subscriptionRoutes = require('./routes/subscriptions');
+//const paymentRoutes = require('./routes/payments');
 
 // Import middleware
 const errorHandler = require('./middleware/errorHandler');
@@ -123,8 +123,8 @@ app.get('/health', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/users', authenticateToken, userRoutes);
 app.use('/api/rides', authenticateToken, rideRoutes);
-app.use('/api/subscriptions', authenticateToken, subscriptionRoutes);
-app.use('/api/payments', authenticateToken, paymentRoutes);
+//app.use('/api/subscriptions', authenticateToken, subscriptionRoutes);
+//app.use('/api/payments', authenticateToken, paymentRoutes);
 
 // Root endpoint
 app.get('/', (req, res) => {
@@ -144,6 +144,9 @@ app.get('/', (req, res) => {
 });
 
 // Error handling middleware (must be last)
+if (typeof errorHandler !== 'function') {
+  throw new TypeError('errorHandler must be a middleware function');
+}
 app.use(errorHandler);
 
 // Handle 404
