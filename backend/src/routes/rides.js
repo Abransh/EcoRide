@@ -39,26 +39,55 @@ router.post('/book', bookRide);
 router.get('/history', getRideHistory);
 
 // Routes with simple parameter validation
-router.get('/:rideId/track', 
-  param('rideId').notEmpty().withMessage('Ride ID is required'),
+router.get('/:rideId/track',
+  [
+    param('rideId')
+      .isMongoId()
+      .withMessage('Invalid ride ID')
+  ],
   handleValidationErrors,
   trackRide
 );
 
 router.put('/:rideId/complete',
-  param('rideId').notEmpty().withMessage('Ride ID is required'),
+  [
+    param('rideId')
+      .isMongoId()
+      .withMessage('Invalid ride ID')
+  ],
   handleValidationErrors,
   completeRide
 );
 
 router.put('/:rideId/cancel',
-  param('rideId').notEmpty().withMessage('Ride ID is required'),
+  [
+    param('rideId')
+      .isMongoId()
+      .withMessage('Invalid ride ID'),
+    body('reason')
+      .optional()
+      .trim()
+      .isLength({ min: 1, max: 200 })
+      .withMessage('Cancellation reason must be between 1 and 200 characters')
+  ],
   handleValidationErrors,
   cancelRide
 );
 
 router.post('/:rideId/rate',
-  param('rideId').notEmpty().withMessage('Ride ID is required'),
+  [
+    param('rideId')
+      .isMongoId()
+      .withMessage('Invalid ride ID'),
+    body('rating')
+      .isInt({ min: 1, max: 5 })
+      .withMessage('Rating must be between 1 and 5'),
+    body('feedback')
+      .optional()
+      .trim()
+      .isLength({ max: 500 })
+      .withMessage('Feedback cannot exceed 500 characters')
+  ],
   handleValidationErrors,
   rateRide
 );

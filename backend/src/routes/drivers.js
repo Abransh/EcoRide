@@ -1,4 +1,4 @@
-// Path: /backend/src/routes/drivers.js
+// /backend/src/routes/drivers.js
 const express = require('express');
 const { body, param, query, validationResult } = require('express-validator');
 const rateLimit = require('express-rate-limit');
@@ -286,7 +286,7 @@ router.get('/rides/nearby',
  */
 router.post('/rides/:rideId/accept',
   [
-    param('rideId').matches(/^ECO[A-Z0-9]+$/).withMessage('Invalid ride ID format'),
+    param('rideId').notEmpty().withMessage('Ride ID is required'),
   ],
   handleValidationErrors,
   acceptRide
@@ -299,7 +299,7 @@ router.post('/rides/:rideId/accept',
  */
 router.post('/rides/:rideId/start',
   [
-    param('rideId').matches(/^ECO[A-Z0-9]+$/).withMessage('Invalid ride ID format'),
+    param('rideId').notEmpty().withMessage('Ride ID is required'),
   ],
   handleValidationErrors,
   startRide
@@ -312,7 +312,7 @@ router.post('/rides/:rideId/start',
  */
 router.post('/rides/:rideId/complete',
   [
-    param('rideId').matches(/^ECO[A-Z0-9]+$/).withMessage('Invalid ride ID format'),
+    param('rideId').notEmpty().withMessage('Ride ID is required'),
     body('actualDistance').optional().isFloat({ min: 0.1, max: 1000 }),
     body('actualDuration').optional().isInt({ min: 1 }),
   ],

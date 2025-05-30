@@ -5,7 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import WelcomeScreen from '../screens/auth/WelcomeScreen';
 import LoginScreen from '../screens/auth/LoginScreen';
 import OTPScreen from '../screens/auth/OTPScreen';
-import SignupScreen from '../screens/auth/SignupScreen';
+//import SignupScreen from '../screens/auth/SignupScreen';
 
 // Common transition configurations
 const screenOptions = {

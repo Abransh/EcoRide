@@ -13,20 +13,20 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 // Redux Store
-import { store, persistor } from './src/store';
+//import { store, persistor } from './src/store';
 
 // Navigation
-import AppNavigator from './src/navigation/AppNavigator';
+import AppNavigator from '../../src/navigation/AppNavigator';
 
 // Components
-import LoadingScreen from './src/components/common/LoadingScreen';
+//import LoadingScreen from './src/components/common/LoadingScreen';
 
 // Services
-import { initializeSocket } from './src/services/socket/socketService';
-import { requestLocationPermission } from './src/utils/permissions';
+//import { initializeSocket } from './src/services/socket/socketService';
+//import { requestLocationPermission } from './src/utils/permissions';
 
 // Constants
-import { COLORS } from './src/constants/colors';
+import { COLORS } from '../constants/colors';
 
 const App = () => {
   useEffect(() => {

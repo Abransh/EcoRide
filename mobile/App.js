@@ -21,11 +21,11 @@ import { store, persistor } from './src/store';
 import AppNavigator from './src/navigation/AppNavigator';
 
 // Components
-import LoadingScreen from './src/components/common/LoadingScreen';
+//import LoadingScreen from './src/components/common/LoadingScreen';
 
 // Services
 import { initializeSocket } from './src/services/socket/socketService';
-import { requestLocationPermission } from './src/utils/permissions';
+//import { requestLocationPermission } from './src/utils/permissions';
 
 // Constants
 import { COLORS } from './src/constants/colors';

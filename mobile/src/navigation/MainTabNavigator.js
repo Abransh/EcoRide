@@ -5,8 +5,8 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 // Screens
 import HomeScreen from '../screens/home/HomeScreen';
-import RideHistoryScreen from '../screens/ride/RideHistoryScreen';
-import SubscriptionScreen from '../screens/subscription/SubscriptionScreen';
+//import RideHistoryScreen from '../screens/ride/RideHistoryScreen';
+//import SubscriptionScreen from '../screens/subscription/SubscriptionScreen';
 import ProfileScreen from '../screens/profile/ProfileScreen';
 
 // Stack screens

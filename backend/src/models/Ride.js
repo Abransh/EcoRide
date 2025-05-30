@@ -402,4 +402,4 @@ rideSchema.statics.getEcoStatsForUser = function(userId) {
   ]);
 };
 
-module.exports = mongoose.model('Ride', rideSchema);
+module.exports = mongoose.models.Ride || mongoose.model('Ride', rideSchema);

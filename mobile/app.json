@@ -1,4 +1,13 @@
 {
   "name": "ecorideapp",
-  "displayName": "ecorideapp"
+  "displayName": "ecorideapp", 
+
+  "expo": {
+    "name": "MyApp",
+    "slug": "myapp",
+    "version": "1.0.0",
+    "sdkVersion": "53.0.0"
+  }
 }
+
+
