@@ -12,12 +12,12 @@ require('dotenv').config();
 // Import routes
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/users'); // Ensure this path is correct
-const rideRoutes = require('./routes/rides');
+const rideRoutes = require('./routes/rides'); // Uncomment this
 //const subscriptionRoutes = require('./routes/subscriptions');
 //const paymentRoutes = require('./routes/payments');
 
 // Import middleware
-const errorHandler = require('./middleware/errorHandler');
+const { errorHandler } = require('./middleware/errorHandler');
 const { authenticateToken } = require('./middleware/auth');
 
 const app = express();
@@ -122,7 +122,7 @@ app.get('/health', (req, res) => {
 // API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/users', authenticateToken, userRoutes);
-app.use('/api/rides', authenticateToken, rideRoutes);
+app.use('/api/rides', authenticateToken, rideRoutes); // This should work now
 //app.use('/api/subscriptions', authenticateToken, subscriptionRoutes);
 //app.use('/api/payments', authenticateToken, paymentRoutes);
 
@@ -144,9 +144,6 @@ app.get('/', (req, res) => {
 });
 
 // Error handling middleware (must be last)
-if (typeof errorHandler !== 'function') {
-  throw new TypeError('errorHandler must be a middleware function');
-}
 app.use(errorHandler);
 
 // Handle 404

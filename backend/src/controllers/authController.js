@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
-const User = require('../models/User');
+const User = require('../models/user');
 const { sendOTP, verifyOTP } = require('../services/smsService');
 const { generateTokens, verifyRefreshToken } = require('../utils/jwtHelpers');
 

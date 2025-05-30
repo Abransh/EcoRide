@@ -1,5 +1,5 @@
-const Ride = require('../models/Ride');
-const User = require('../models/User');
+const Ride = require('../models/ride');
+const User = require('../models/user');
 const { sendRideNotification } = require('../services/smsService');
 
 /**

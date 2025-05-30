@@ -1,5 +1,5 @@
 const SubscriptionPlan = require('../models/SubscriptionPlan');
-const User = require('../models/User');
+const User = require('../models/user');
 const { processPayment, createSubscription, cancelSubscription } = require('../services/paymentService');
 const { sendSubscriptionNotification } = require('../services/smsService');
 
